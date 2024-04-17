@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  
+  nu-service:
+    container_name: nu-container
+    image: ${NUSSKNACKER_IMAGE-touk/nussknacker}:${NUSSKNACKER_VERSION-latest}
+    ports:
+      - "8180:8080"
+      - "8183:8181"  
+    environment:
+      #multiple, comma separated, config files can be used. They will be merged in order, via HOCON fallback mechanism
+      #https://github.com/lightbend/config/blob/master/HOCON.md#config-object-merging-and-file-merging
+      DEFAULT_SCENARIO_TYPE: request-response-embedded 
+      CONFIG_FILE: "/opt/nussknacker/conf/application.conf,/opt/nussknacker/conf/app.conf"
+ 
+      
+    volumes:
+      - nu-volume:/opt/nussknacker/storage
+      - ./app.conf:/opt/nussknacker/conf/app.conf
+
+volumes:
+  nu-volume:
+    name: nu-storage
+ 
