@@ -1,1 +1,1 @@
-{"sourceId" : "requestNode", "record": {"data1" : "ddata1", "data2" : "ddata2"}}
+{"sourceId" : "requestNode", "record": {"data1" : "ddata1", "data2" : 123}}

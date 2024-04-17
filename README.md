@@ -7,11 +7,12 @@ Please browse through basic terminology used in this readme (component, scenario
 - docker
 - docker-compose
 
-# Startup command: 
+# Startup command
 	docker-compose up # from the directory where the docker-compose.yml file is located
 
-# Additional configuration:
-	Enrichers configuration should be added to app.conf; if you do it correctly, you will them in the components pallette. 
+# Additional configuration
+	
+Enrichers configuration should be added to app.conf; if you do it correctly, you will them in the components pallette. 
 
 # Steps
 
@@ -25,8 +26,13 @@ Please browse through basic terminology used in this readme (component, scenario
     - inspect scenario properties - you will find the input and output schemas there. If you used streaming engine, the schemas would be kept in the Schema Registry
     - click save, you can leave comment blank
     - deploy scenario, you can leave comment blank
-- call the scenario from the command line
-    -  curl localhost:8183/scenario/my-slug   -HContent-Type:application/json -d '{"data1": "in Nu Request - Response embedded processing mode", "data2":"data2"}'
+- call the scenario from the command line 
+     
+     `curl localhost:8183/scenario/plk   -HContent-Type:application/json -d '{"data1": "in Nu Request - Response embedded processing mode", "data2":123}'`
+- check the OpenAPI service definition 
+
+    `curl localhost:8183/scenario/plk/definition` 
+
 
 
 # Further reading:
